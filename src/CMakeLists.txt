@@ -168,10 +168,6 @@ if(OQS_USE_OPENSSL)
     target_link_libraries(oqs PUBLIC ${OPENSSL_CRYPTO_LIBRARY})
     target_include_directories(oqs PUBLIC ${OPENSSL_INCLUDE_DIR})
 endif()
-if(DEFINED CPUFEATURES_LIBRARY)
-    target_link_libraries(oqs PRIVATE ${CPUFEATURES_LIBRARY})
-endif()
-
 
 set_target_properties(oqs
     PROPERTIES

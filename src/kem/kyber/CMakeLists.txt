@@ -2,7 +2,6 @@
 # scripts/copy_from_pqclean/copy_from_pqclean.py
 
 if(OQS_ENABLE_KEM_kyber_512)
-    
         set(SRCS_KYBER_512_CLEAN_SRCS pqclean_kyber512_clean/kem.c pqclean_kyber512_clean/verify.c pqclean_kyber512_clean/indcpa.c pqclean_kyber512_clean/symmetric-fips202.c pqclean_kyber512_clean/poly.c pqclean_kyber512_clean/ntt.c pqclean_kyber512_clean/cbd.c pqclean_kyber512_clean/reduce.c pqclean_kyber512_clean/polyvec.c)
     
 if(OQS_ENABLE_KEM_kyber_512_avx2)

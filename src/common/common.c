@@ -9,17 +9,6 @@
 #include <windows.h>
 #endif
 
-#ifdef OQS_ENABLE_CPUFEATURES
-#include <cpu_features_macros.h>
-
-#if defined(CPU_FEATURES_ARCH_X86)
-#include <cpuinfo_x86.h>
-#elif defined(CPU_FEATURES_ARCH_ARM)
-#include <cpuinfo_arm.h>
-#elif defined(CPU_FEATURES_ARCH_AARCH64)
-#include <cpuinfo_aarch64.h>
-#endif
-
 static OQS_RT rt_cpu_flags = {0};
 static int rt_cpu_flags_initialized = 0;
 
