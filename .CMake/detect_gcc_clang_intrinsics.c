@@ -25,11 +25,8 @@ int main(void) {
 #if defined(__BMI2__)
         printf("BMI2;");
 #endif
-#if defined(__FMA3__)
+#if defined(__FMA__)
         printf("FMA;");
-#endif
-#if defined(__FMA4__)
-        printf("FMA4;");
 #endif
 #if defined(__POPCNT__)
         printf("POPCNT;");

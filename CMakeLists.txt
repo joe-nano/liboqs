@@ -39,7 +39,7 @@ endif()
 if(CMAKE_BUILD_TYPE STREQUAL "Optimized")
     set(OQS_OPTIMIZED_BUILD ON)
 endif()
-include(.CMake/compiler_flags.cmake)
+include(.CMake/compiler_opts.cmake)
 
 include(.CMake/alg_support.cmake)
 

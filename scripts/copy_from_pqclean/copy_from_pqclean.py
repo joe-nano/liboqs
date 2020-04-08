@@ -67,6 +67,7 @@ def load_instructions():
             scheme['metadata']['ind_cca'] = 'true' if (scheme['metadata']['claimed-security'] == "IND-CCA2") else 'false'
             scheme['pqclean_scheme_c'] = scheme['pqclean_scheme'].replace('-', '')
             scheme['scheme_c'] = scheme['scheme'].replace('-', '')
+            scheme['default_implementation'] = family['default_implementation']
     for family in instructions['sigs']:
         family['type'] = 'sig'
         family['pqclean_type'] = 'sign'
@@ -149,6 +150,7 @@ for family in instructions['kems'] + instructions['sigs']:
                                  comp_opts = comp_opts + " "
                       impl['compile_options'] = comp_opts
                       impl['rt_options'] = rt_opts
+                      impl['required_flags'] = req['required_flags']
                       impl['cmake_options'] = cmake_opts
                except KeyError as ke:
                       if (impl['name'] != "clean"):
@@ -178,11 +180,11 @@ for family in instructions['kems'] + instructions['sigs']:
         )
 
 replacer('.CMake/alg_support.cmake', instructions, '#####')
-replacer('CMakeLists.txt', instructions, '#####')
+#replacer('CMakeLists.txt', instructions, '#####')
 replacer('src/oqsconfig.h.cmake', instructions, '/////')
-replacer('src/CMakeLists.txt', instructions, '#####')
-replacer('src/kem/kem.c', instructions, '/////')
-replacer('src/kem/kem.h', instructions, '/////')
-replacer('src/sig/sig.c', instructions, '/////')
-replacer('src/sig/sig.h', instructions, '/////')
-replacer('tests/kat_sig.c', instructions, '/////')
+#replacer('src/CMakeLists.txt', instructions, '#####')
+#replacer('src/kem/kem.c', instructions, '/////')
+#replacer('src/kem/kem.h', instructions, '/////')
+#replacer('src/sig/sig.c', instructions, '/////')
+#replacer('src/sig/sig.h', instructions, '/////')
+#replacer('tests/kat_sig.c', instructions, '/////')
