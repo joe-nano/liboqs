@@ -82,22 +82,21 @@ def load_instructions():
 # Copy over all files for a given impl in a family using scheme
 # Returns list of all relative source files
 def handle_implementation(impl, family, scheme):
-        shutil.rmtree(os.path.join('src', family['type'], family['name'], 'pqclean_{}_{}'.format(scheme['pqclean_scheme'].replace('-','_'), impl)), ignore_errors=True)
-        srcfolder = os.path.join('src', family['type'], family['name'], 'pqclean_{}_{}'.format(scheme['pqclean_scheme'].replace('-','_'), impl))
+        shutil.rmtree(os.path.join('src', family['type'], family['name'], 'pqclean_{}_{}'.format(scheme['pqclean_scheme'], impl)), ignore_errors=True)
+        srcfolder = os.path.join('src', family['type'], family['name'], 'pqclean_{}_{}'.format(scheme['pqclean_scheme'], impl))
         subprocess.run([
             'cp',
             '-pr',
             os.path.join(os.environ['PQCLEAN_DIR'], 'crypto_' + family['pqclean_type'], scheme['pqclean_scheme'], impl),
             srcfolder
         ])
-        try: 
-            os.remove(os.path.join('src', family['type'], family['name'], 'pqclean_{}_{}'.format(scheme['pqclean_scheme'].replace('-','_'), impl), 'Makefile'))
-            os.remove(os.path.join('src', family['type'], family['name'], 'pqclean_{}_{}'.format(scheme['pqclean_scheme'].replace('-','_'), impl), 'Makefile.Microsoft_nmake'))
+        try:
+            os.remove(os.path.join('src', family['type'], family['name'], 'pqclean_{}_{}'.format(scheme['pqclean_scheme'], impl), 'Makefile'))
+            os.remove(os.path.join('src', family['type'], family['name'], 'pqclean_{}_{}'.format(scheme['pqclean_scheme'], impl), 'Makefile.Microsoft_nmake'))
         except FileNotFoundError:
-           pass 
+           pass
         extensions = [ '.c', '.s' ]
         return [str(x.relative_to(srcfolder)) for x in Path(srcfolder).iterdir() if x.suffix.lower() in extensions]
-        
 
 
 instructions = load_instructions()
@@ -127,11 +126,6 @@ for family in instructions['kems'] + instructions['sigs']:
                srcs = handle_implementation(impl['name'], family, scheme)
                # in any case: add 'sources' to implementation(s) 
                impl['sources'] = srcs
-               # generate 'oqs_unsupported.c' files to permit building also on platforms where the optimized code cannot compile
-               if (impl['name'] != 'clean'):
-                   unsupported_filename = os.path.join('src', family['type'], family['name'], 'pqclean_{}_{}'.format(scheme['pqclean_scheme'].replace('-','_'), impl['name']) , 'oqs_unsupported.c')
-                   with open(unsupported_filename, 'w') as gen_file:
-                       gen_file.write('int {}_{}_unsupported=1;\n'.format(scheme['pqclean_scheme'].replace('-','_'), impl['name']))
                # also add suitable defines:
                try: 
                       comp_opts = ""
