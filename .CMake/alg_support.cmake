@@ -24,7 +24,7 @@ cmake_dependent_option(OQS_ENABLE_KEM_frodokem_976_shake "" ON "OQS_ENABLE_KEM_F
 cmake_dependent_option(OQS_ENABLE_KEM_frodokem_1344_aes "" ON "OQS_ENABLE_KEM_FRODOKEM" OFF)
 cmake_dependent_option(OQS_ENABLE_KEM_frodokem_1344_shake "" ON "OQS_ENABLE_KEM_FRODOKEM" OFF)
 
-option(OQS_ENABLE_KEM_SIKE "" OFF)
+option(OQS_ENABLE_KEM_SIKE "" ON)
 cmake_dependent_option(OQS_ENABLE_KEM_sike_p434 "" ON "OQS_ENABLE_KEM_SIKE" OFF)
 cmake_dependent_option(OQS_ENABLE_KEM_sike_p434_compressed "" ON "OQS_ENABLE_KEM_SIKE" OFF)
 cmake_dependent_option(OQS_ENABLE_KEM_sike_p503 "" ON "OQS_ENABLE_KEM_SIKE" OFF)
@@ -34,7 +34,7 @@ cmake_dependent_option(OQS_ENABLE_KEM_sike_p610_compressed "" ON "OQS_ENABLE_KEM
 cmake_dependent_option(OQS_ENABLE_KEM_sike_p751 "" ON "OQS_ENABLE_KEM_SIKE" OFF)
 cmake_dependent_option(OQS_ENABLE_KEM_sike_p751_compressed "" ON "OQS_ENABLE_KEM_SIKE" OFF)
 
-option(OQS_ENABLE_KEM_SIDH "" OFF)
+option(OQS_ENABLE_KEM_SIDH "" ON)
 cmake_dependent_option(OQS_ENABLE_KEM_sidh_p434 "" ON "OQS_ENABLE_KEM_SIDH" OFF)
 cmake_dependent_option(OQS_ENABLE_KEM_sidh_p434_compressed "" ON "OQS_ENABLE_KEM_SIDH" OFF)
 cmake_dependent_option(OQS_ENABLE_KEM_sidh_p503 "" ON "OQS_ENABLE_KEM_SIDH" OFF)
@@ -60,7 +60,7 @@ cmake_dependent_option(OQS_ENABLE_SIG_qTesla_p_I "" ON "OQS_ENABLE_SIG_QTESLA" O
 cmake_dependent_option(OQS_ENABLE_SIG_qTesla_p_III "" ON "OQS_ENABLE_SIG_QTESLA" OFF)
 
 ##### OQS_COPY_FROM_PQCLEAN_FRAGMENT_ADD_ENABLE_BY_ALG_START
-option(OQS_ENABLE_KEM_CLASSIC_MCELIECE "" OFF)
+option(OQS_ENABLE_KEM_CLASSIC_MCELIECE "" ON)
 cmake_dependent_option(OQS_ENABLE_KEM_classic_mceliece_348864 "" ON "OQS_ENABLE_KEM_CLASSIC_MCELIECE" OFF)
 cmake_dependent_option(OQS_ENABLE_KEM_classic_mceliece_348864f "" ON "OQS_ENABLE_KEM_CLASSIC_MCELIECE" OFF)
 cmake_dependent_option(OQS_ENABLE_KEM_classic_mceliece_460896 "" ON "OQS_ENABLE_KEM_CLASSIC_MCELIECE" OFF)
@@ -98,27 +98,27 @@ if(ARCH STREQUAL "x86_64" AND CMAKE_SYSTEM_NAME MATCHES "Linux")
     cmake_dependent_option(OQS_ENABLE_KEM_kyber_1024_90s_avx2 "" ON "OQS_USE_AES_INSTRUCTIONS;OQS_USE_AVX2_INSTRUCTIONS;OQS_USE_BMI2_INSTRUCTIONS;OQS_USE_POPCNT_INSTRUCTIONS;OQS_ENABLE_KEM_KYBER" OFF)
 endif()
 
-option(OQS_ENABLE_KEM_LEDACRYPT "" OFF)
+option(OQS_ENABLE_KEM_LEDACRYPT "" ON)
 cmake_dependent_option(OQS_ENABLE_KEM_ledacrypt_ledakemlt12 "" ON "OQS_ENABLE_KEM_LEDACRYPT" OFF)
 cmake_dependent_option(OQS_ENABLE_KEM_ledacrypt_ledakemlt32 "" ON "OQS_ENABLE_KEM_LEDACRYPT" OFF)
 cmake_dependent_option(OQS_ENABLE_KEM_ledacrypt_ledakemlt52 "" ON "OQS_ENABLE_KEM_LEDACRYPT" OFF)
 
-option(OQS_ENABLE_KEM_NEWHOPE "" OFF)
+option(OQS_ENABLE_KEM_NEWHOPE "" ON)
 cmake_dependent_option(OQS_ENABLE_KEM_newhope_512cca "" ON "OQS_ENABLE_KEM_NEWHOPE" OFF)
 cmake_dependent_option(OQS_ENABLE_KEM_newhope_1024cca "" ON "OQS_ENABLE_KEM_NEWHOPE" OFF)
 
-option(OQS_ENABLE_KEM_NTRU "" OFF)
+option(OQS_ENABLE_KEM_NTRU "" ON)
 cmake_dependent_option(OQS_ENABLE_KEM_ntru_hps2048509 "" ON "OQS_ENABLE_KEM_NTRU" OFF)
 cmake_dependent_option(OQS_ENABLE_KEM_ntru_hps2048677 "" ON "OQS_ENABLE_KEM_NTRU" OFF)
 cmake_dependent_option(OQS_ENABLE_KEM_ntru_hps4096821 "" ON "OQS_ENABLE_KEM_NTRU" OFF)
 cmake_dependent_option(OQS_ENABLE_KEM_ntru_hrss701 "" ON "OQS_ENABLE_KEM_NTRU" OFF)
 
-option(OQS_ENABLE_KEM_SABER "" OFF)
+option(OQS_ENABLE_KEM_SABER "" ON)
 cmake_dependent_option(OQS_ENABLE_KEM_saber_lightsaber "" ON "OQS_ENABLE_KEM_SABER" OFF)
 cmake_dependent_option(OQS_ENABLE_KEM_saber_saber "" ON "OQS_ENABLE_KEM_SABER" OFF)
 cmake_dependent_option(OQS_ENABLE_KEM_saber_firesaber "" ON "OQS_ENABLE_KEM_SABER" OFF)
 
-option(OQS_ENABLE_KEM_THREEBEARS "" OFF)
+option(OQS_ENABLE_KEM_THREEBEARS "" ON)
 cmake_dependent_option(OQS_ENABLE_KEM_threebears_babybear "" ON "OQS_ENABLE_KEM_THREEBEARS" OFF)
 cmake_dependent_option(OQS_ENABLE_KEM_threebears_babybear_ephem "" ON "OQS_ENABLE_KEM_THREEBEARS" OFF)
 cmake_dependent_option(OQS_ENABLE_KEM_threebears_mamabear "" ON "OQS_ENABLE_KEM_THREEBEARS" OFF)
@@ -126,7 +126,7 @@ cmake_dependent_option(OQS_ENABLE_KEM_threebears_mamabear_ephem "" ON "OQS_ENABL
 cmake_dependent_option(OQS_ENABLE_KEM_threebears_papabear "" ON "OQS_ENABLE_KEM_THREEBEARS" OFF)
 cmake_dependent_option(OQS_ENABLE_KEM_threebears_papabear_ephem "" ON "OQS_ENABLE_KEM_THREEBEARS" OFF)
 
-option(OQS_ENABLE_SIG_DILITHIUM "" OFF)
+option(OQS_ENABLE_SIG_DILITHIUM "" ON)
 cmake_dependent_option(OQS_ENABLE_SIG_dilithium_2 "" ON "OQS_ENABLE_SIG_DILITHIUM" OFF)
 if(ARCH STREQUAL "x86_64" AND CMAKE_SYSTEM_NAME MATCHES "Darwin|Linux")
     cmake_dependent_option(OQS_ENABLE_SIG_dilithium_2_avx2 "" ON "OQS_USE_AVX2_INSTRUCTIONS;OQS_USE_BMI2_INSTRUCTIONS;OQS_ENABLE_SIG_DILITHIUM" OFF)
@@ -140,15 +140,15 @@ if(ARCH STREQUAL "x86_64" AND CMAKE_SYSTEM_NAME MATCHES "Darwin|Linux")
     cmake_dependent_option(OQS_ENABLE_SIG_dilithium_4_avx2 "" ON "OQS_USE_AVX2_INSTRUCTIONS;OQS_USE_BMI2_INSTRUCTIONS;OQS_ENABLE_SIG_DILITHIUM" OFF)
 endif()
 
-option(OQS_ENABLE_SIG_FALCON "" OFF)
+option(OQS_ENABLE_SIG_FALCON "" ON)
 cmake_dependent_option(OQS_ENABLE_SIG_falcon_512 "" ON "OQS_ENABLE_SIG_FALCON" OFF)
 cmake_dependent_option(OQS_ENABLE_SIG_falcon_1024 "" ON "OQS_ENABLE_SIG_FALCON" OFF)
 
-option(OQS_ENABLE_SIG_MQDSS "" OFF)
+option(OQS_ENABLE_SIG_MQDSS "" ON)
 cmake_dependent_option(OQS_ENABLE_SIG_mqdss_31_48 "" ON "OQS_ENABLE_SIG_MQDSS" OFF)
 cmake_dependent_option(OQS_ENABLE_SIG_mqdss_31_64 "" ON "OQS_ENABLE_SIG_MQDSS" OFF)
 
-option(OQS_ENABLE_SIG_RAINBOW "" OFF)
+option(OQS_ENABLE_SIG_RAINBOW "" ON)
 cmake_dependent_option(OQS_ENABLE_SIG_rainbow_Ia_classic "" ON "OQS_ENABLE_SIG_RAINBOW" OFF)
 cmake_dependent_option(OQS_ENABLE_SIG_rainbow_Ia_cyclic "" ON "OQS_ENABLE_SIG_RAINBOW" OFF)
 cmake_dependent_option(OQS_ENABLE_SIG_rainbow_Ia_cyclic_compressed "" ON "OQS_ENABLE_SIG_RAINBOW" OFF)
@@ -159,7 +159,7 @@ cmake_dependent_option(OQS_ENABLE_SIG_rainbow_Vc_classic "" ON "OQS_ENABLE_SIG_R
 cmake_dependent_option(OQS_ENABLE_SIG_rainbow_Vc_cyclic "" ON "OQS_ENABLE_SIG_RAINBOW" OFF)
 cmake_dependent_option(OQS_ENABLE_SIG_rainbow_Vc_cyclic_compressed "" ON "OQS_ENABLE_SIG_RAINBOW" OFF)
 
-option(OQS_ENABLE_SIG_SPHINCS "" OFF)
+option(OQS_ENABLE_SIG_SPHINCS "" ON)
 cmake_dependent_option(OQS_ENABLE_SIG_sphincs_haraka_128f_robust "" ON "OQS_ENABLE_SIG_SPHINCS" OFF)
 cmake_dependent_option(OQS_ENABLE_SIG_sphincs_haraka_128f_simple "" ON "OQS_ENABLE_SIG_SPHINCS" OFF)
 cmake_dependent_option(OQS_ENABLE_SIG_sphincs_haraka_128s_robust "" ON "OQS_ENABLE_SIG_SPHINCS" OFF)

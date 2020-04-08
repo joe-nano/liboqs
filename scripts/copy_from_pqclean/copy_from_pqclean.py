@@ -77,6 +77,7 @@ def load_instructions():
             scheme['metadata']['euf_cma'] = 'true'
             scheme['pqclean_scheme_c'] = scheme['pqclean_scheme'].replace('-', '')
             scheme['scheme_c'] = scheme['scheme'].replace('-', '')
+            scheme['default_implementation'] = family['default_implementation']
     return instructions
 
 # Copy over all files for a given impl in a family using scheme
