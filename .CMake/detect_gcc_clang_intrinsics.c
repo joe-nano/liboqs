@@ -2,43 +2,43 @@
 
 int main(void) {
 #if defined(__AES__)
-        printf("AES;");
+	printf("AES;");
 #endif
 #if defined(__AVX__)
-        printf("AVX;");
+	printf("AVX;");
 #endif
 #if defined(__AVX2__)
-        printf("AVX2;");
+	printf("AVX2;");
 #endif
 #if defined(__AVX512BW__)
-        printf("AVX512BW;");
+	printf("AVX512BW;");
 #endif
 #if defined(__AVX512DQ__)
-        printf("AVX512DQ;");
+	printf("AVX512DQ;");
 #endif
 #if defined(__AVX512F__)
-        printf("AVX512F;");
+	printf("AVX512F;");
 #endif
 #if defined(__BMI__)
-        printf("BMI;");
+	printf("BMI;");
 #endif
 #if defined(__BMI2__)
-        printf("BMI2;");
+	printf("BMI2;");
 #endif
 #if defined(__FMA__)
-        printf("FMA;");
+	printf("FMA;");
 #endif
 #if defined(__POPCNT__)
-        printf("POPCNT;");
+	printf("POPCNT;");
 #endif
 #if defined(__SSE__)
-        printf("SSE;");
+	printf("SSE;");
 #endif
 #if defined(__SSE2__)
-        printf("SSE2;");
+	printf("SSE2;");
 #endif
 #if defined(__SSE3__)
-        printf("SSE3;");
+	printf("SSE3;");
 #endif
-    return 0;
+	return 0;
 }
