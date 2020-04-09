@@ -23,12 +23,11 @@ static inline uint32_t xgetbv_eax(uint32_t xcr) {
 	uint32_t eax;
 	__asm__ ( ".byte 0x0f, 0x01, 0xd0" : "=a"(eax) : "c"(xcr));
 	return eax;
-#elif defined(_MSC_VER)
+#elif defined(_MSVC_VER)
 	return _xgetbv(xcr) & 0xFFFF;
 #else
 #error "Only GCC, Clang, and MSVC are supported."
 #endif
-	return eax;
 }
 
 static unsigned int has_mask(const uint32_t value, const uint32_t mask) {
