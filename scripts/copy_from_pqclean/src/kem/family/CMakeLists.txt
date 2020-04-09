@@ -5,11 +5,12 @@
         {%- if impl['name'] == scheme['default_implementation'] %}
 
 if(OQS_ENABLE_KEM_{{ family }}_{{ scheme['scheme_c'] }})
+    add_library({{ family }}_{{ scheme['scheme'] }}_{{ impl['name'] }} OBJECT kem_{{ family }}_{{ scheme['scheme'] }}.c {% for source_file in impl['sources']|sort -%}pqclean_{{ scheme['pqclean_scheme'] }}_{{ impl['name'] }}/{{ source_file }}{%- if not loop.last %} {% endif -%}{%- endfor -%})
         {%- else %}
 
 if(OQS_ENABLE_KEM_{{ family }}_{{ scheme['scheme_c'] }}_{{ impl['name'] }})
+    add_library({{ family }}_{{ scheme['scheme'] }}_{{ impl['name'] }} OBJECT {% for source_file in impl['sources']|sort -%}pqclean_{{ scheme['pqclean_scheme'] }}_{{ impl['name'] }}/{{ source_file }}{%- if not loop.last %} {% endif -%}{%- endfor -%})
         {%- endif %}
-    add_library({{ family }}_{{ scheme['scheme'] }}_{{ impl['name'] }} OBJECT kem_{{ family }}_{{ scheme['scheme'] }}.c {% for source_file in impl['sources']|sort -%}pqclean_{{ scheme['pqclean_scheme'] }}_{{ impl['name'] }}/{{ source_file }}{%- if not loop.last %} {% endif -%}{%- endfor -%})
     target_include_directories({{ family }}_{{ scheme['scheme'] }}_{{ impl['name'] }} PRIVATE ${PROJECT_SOURCE_DIR}/src/common/pqclean_shims)
     target_include_directories({{ family }}_{{ scheme['scheme'] }}_{{ impl['name'] }} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/pqclean_{{ scheme['pqclean_scheme'] }}_{{ impl['name'] }})
         {%- if impl['name'] != scheme['default_implementation'] %}
