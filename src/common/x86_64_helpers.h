@@ -23,7 +23,7 @@ static inline uint32_t xgetbv_eax(uint32_t xcr) {
 	uint32_t eax;
 	__asm__ ( ".byte 0x0f, 0x01, 0xd0" : "=a"(eax) : "c"(xcr));
 	return eax;
-#elif defined(_MSVC_VER)
+#elif defined(_MSC_VER)
 	return _xgetbv(xcr) & 0xFFFF;
 #else
 #error "Only GCC, Clang, and MSVC are supported."
@@ -48,7 +48,7 @@ static inline void cpuid(cpuid_out *out, const uint32_t eax_leaf) {
 	out->ebx = ebx;
 	out->ecx = ecx;
 	out->edx = edx;
-#elif defined(_MSVC_VER)
+#elif defined(_MSC_VER)
 	uint32_t output[4];
 	__cpuidex(output, eax_leaf, ecx_leaf);
 	out->eax = output[0];
