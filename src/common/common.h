@@ -83,20 +83,20 @@ typedef enum {
  */
 #if defined(ARCH_X86_64)
 typedef struct {
-	uint8_t AES_ENABLED;
-	uint8_t AVX_ENABLED;
-	uint8_t AVX2_ENABLED;
-	uint8_t AVX512_ENABLED;
-	uint8_t BMI_ENABLED;
-	uint8_t BMI2_ENABLED;
-	uint8_t POPCNT_ENABLED;
-	uint8_t SSE_ENABLED;
-	uint8_t SSE2_ENABLED;
-	uint8_t SSE3_ENABLED;
+	unsigned int AES_ENABLED;
+	unsigned int AVX_ENABLED;
+	unsigned int AVX2_ENABLED;
+	unsigned int AVX512_ENABLED;
+	unsigned int BMI_ENABLED;
+	unsigned int BMI2_ENABLED;
+	unsigned int POPCNT_ENABLED;
+	unsigned int SSE_ENABLED;
+	unsigned int SSE2_ENABLED;
+	unsigned int SSE3_ENABLED;
 } OQS_CPU_EXTENSIONS;
 #elif defined(ARCH_ARM_ANY)
 typedef struct {
-	uint8_t NEON_ENABLED;
+	unsigned int NEON_ENABLED;
 } OQS_CPU_EXTENSIONS;
 #endif
 
